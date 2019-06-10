@@ -57,7 +57,7 @@ def main() -> None:
     train_counter = prev_loss_data['train_counter']
     test_losses = prev_loss_data['test_losses']
     test_counter = prev_loss_data['test_counter']
-    test_counter.extend([i * len(train_loader.dataset) for i in range(start_range, end_range + 1)])
+    test_counter.extend([i * len(train_loader.dataset) for i in range(start_range, end_range)])
 
     training_state = TrainingState(train_losses, train_counter, args.out_dir)
     test(test_loader, continued_network, test_losses)
