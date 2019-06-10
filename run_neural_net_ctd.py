@@ -60,7 +60,7 @@ def main() -> None:
     test_counter.extend([i * len(train_loader.dataset) for i in range(start_range, end_range)])
 
     training_state = TrainingState(train_losses, train_counter, args.out_dir)
-    test(test_loader, continued_network, test_losses)
+
     for epoch in range(start_range, end_range):
         train(train_loader, continued_network, continued_optimizer, epoch, args.log_interval, training_state)
         test(test_loader, continued_network, test_losses)
