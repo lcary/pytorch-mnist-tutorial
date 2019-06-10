@@ -1,5 +1,5 @@
-pytorch-mnist
-=============
+PyTorch MNIST Tutorial
+======================
 
 This repo contains a convolutional neural network that can be trained to 
 extract features from MNIST data and recognize images. All code is based
