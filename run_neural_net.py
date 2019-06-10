@@ -100,7 +100,7 @@ def main() -> None:
         train(train_loader, network, optimizer, epoch, log_interval, training_state)
         test(test_loader, network, test_losses)
 
-    save_loss_data_file(args.out_dir, train_counter, train_losses, test_counter, test_losses)
+    save_loss_data_file(args.out_dir, train_counter, train_losses, test_counter, test_losses, n_epochs)
 
     save_example_prediction_data(args.out_dir, network, example_data)
 

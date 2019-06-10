@@ -2,6 +2,12 @@ import argparse
 
 
 def get_args():
+    parser = get_common_parser()
+    args = parser.parse_args()
+    return args
+
+
+def get_common_parser():
     parser = argparse.ArgumentParser()
     parser.add_argument('-d', '--data-dir', default='data')
     parser.add_argument('-o', '--out-dir', default='out')
@@ -11,5 +17,4 @@ def get_args():
     parser.add_argument('--learning-rate', default=0.01, type=float)
     parser.add_argument('--momentum', default=0.5, type=float)
     parser.add_argument('--log-interval', default=10, type=int)
-    args = parser.parse_args()
-    return args
+    return parser

@@ -23,21 +23,17 @@ import os
 
 import matplotlib.pyplot as plt
 
+from lib.utils import get_timestamp_str
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('-i', '--input-filepath')
-    parser.add_argument('-o', '--output-filepath', default='out')
+    parser.add_argument('loss_data_file', help='previous loss data file')
+    parser.add_argument('-o', '--output-dir', default='out')
     args = parser.parse_args()
 
-    os.makedirs(args.output_filepath, exist_ok=True)
+    os.makedirs(args.output_dir, exist_ok=True)
 
-    if args.input_filepath:
-        loss_data_file = args.input_filepath
-    else:
-        loss_data_file = os.path.join(args.output_filepath, 'loss_data.json')
-
-    with open(loss_data_file, 'r') as infile:
+    with open(args.loss_data_file, 'r') as infile:
         data = json.load(infile)
 
     # Plot the training curve:
@@ -48,6 +44,7 @@ if __name__ == '__main__':
     plt.legend(['Train Loss', 'Test Loss'], loc='upper right')
     plt.xlabel('number of training examples seen')
     plt.ylabel('negative log likelihood loss')
-    fpath = os.path.join(args.output_filepath, 'performance_graph.png')
+    ts = get_timestamp_str()
+    fpath = os.path.join(args.output_dir, f'performance_graph_{ts}.png')
     print(f'saving graph of model performance to {fpath}')
     fig.savefig(fpath, dpi=fig.dpi)
