@@ -2,3 +2,5 @@ out/
 data/
 venv/
 *~
+.idea/
+__pycache__/
