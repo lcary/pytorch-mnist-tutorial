@@ -17,5 +17,6 @@ def save_loss_data_file(
         'test_losses': test_losses,
     }
     loss_data_file = os.path.join(output_dir, 'loss_data.json')
+    print(f'saving loss data to {loss_data_file}')
     with open(loss_data_file, 'w') as outfile:
         json.dump(data, outfile, indent=2)
