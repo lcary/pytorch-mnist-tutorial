@@ -16,7 +16,7 @@ python run_neural_net.py
 
 To graph the data:
 ```bash
-python graph.py
+python graph.py out/loss_data_20190610_T18:55:25.json
 ```
 
 
@@ -27,5 +27,5 @@ Example output:
 
 To continue training:
 ```bash
-python run_neural_net_ctd.py
+python run_neural_net_ctd.py out/loss_data_20190610_T18:55:25.json
 ```

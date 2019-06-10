@@ -20,7 +20,6 @@ from lib.utils import save_loss_data_file
 def main() -> None:
     parser = get_common_parser()
     parser.add_argument('previous_loss_data', help='previous loss data file')
-    parser.add_argument('-s', '--start-epoch', default=4, type=int, help='one plus the number of ')
     args = parser.parse_args()
 
     os.makedirs(args.data_dir, exist_ok=True)
